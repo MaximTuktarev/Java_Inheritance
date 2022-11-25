@@ -1,6 +1,5 @@
 package ru.netology.domain;
 
-import ru.netology.domain.Product;
 
 public class Smartphone extends Product {
     private String manufacturer;
@@ -12,5 +11,9 @@ public class Smartphone extends Product {
 
     public String getManufacturer() {
         return manufacturer;
+    }
+
+    public void setManufacturer(String producer) {
+        this.manufacturer = producer;
     }
 }

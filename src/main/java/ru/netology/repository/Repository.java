@@ -7,11 +7,11 @@ public class Repository {
 
 
     public void save(Product item) {
-        int length = items.length + 1;
-        Product[] tmp = new Product[length];
-        System.arraycopy(items, 0, tmp, 0, items.length);
-        int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = item;
+        Product[] tmp = new Product[items.length + 1];
+        for (int i = 0; i < items.length; i++) {
+            tmp[i] = items[i];
+        }
+        tmp[tmp.length - 1] = item;
         items = tmp;
 
     }
@@ -21,8 +21,7 @@ public class Repository {
     }
 
     public void removeById(int id) {
-        int length = items.length - 1;
-        Product[] tmp = new Product[length];
+        Product[] tmp = new Product[items.length - 1];
         int index = 0;
         for (Product item : items) {
             if (item.getId() != id) {
