@@ -1,5 +1,6 @@
 package ru.netology.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.manager.ProductManager;
@@ -44,6 +45,28 @@ class ProductTest {
         Product[] actual = manager.searchBy("Maxoynee 1");
         Product[] excepted = {product1};
         assertArrayEquals(excepted, actual);
+
+
     }
 
+    @Test
+    void shouldFindSomeProducts() {
+        Product[] actual = manager.searchBy("Maxoynee");
+        Product[] excepted = {product1, product2, product3};
+        Assertions.assertArrayEquals(excepted, actual);
+    }
+
+    @Test
+    void shouldFindOneProduct() {
+        Product[] actual = manager.searchBy("Maxoynee 1");
+        Product[] excepted = {product1};
+        assertArrayEquals(excepted, actual);
+    }
+
+    @Test
+    void shouldFindZeroProduct() {
+        Product[] actual = manager.searchBy("Iphone");
+        Product[] excepted = {};
+        assertArrayEquals(excepted, actual);
+    }
 }
